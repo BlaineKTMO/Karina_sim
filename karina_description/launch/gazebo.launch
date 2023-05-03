@@ -1,0 +1,59 @@
+<launch>
+<!-- Include the Gazebo empty world launch file -->
+<include file="$(find gazebo_ros)/launch/empty_world.launch"> </include>
+  
+ <!-- Define a static transform between the "map" and "odom" frames -->
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 map odom 40" />
+
+<!-- The below rosrun command can also be used and the below node commented out to prevent having to restart gazebo when working on urdf 
+     Running this command will spawn the robot in Gazebo any model already spawned in Gazebo needs to be deleted before spawining a new one-->
+     
+<!--rosrun gazebo_ros spawn_model -file ~/karina/igvc_ws/src/igvc_simulation/karina_description/urdf/karina_description_2d.urdf -urdf -model karina_description_2d-->
+  
+    <!-- Spawn the robot in Gazebo using the URDF model -->
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find karina_description)/urdf/karina_description.urdf -urdf -model karina_description"
+    output="screen" />
+  
+    <!-- Publish a calibration message for the fake joint calibration node -->
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+    <!-- Define an argument for the robot model -->
+  <arg
+    name="model" />
+    <!-- Load the URDF file and set the robot description parameter -->
+  <param
+    name="robot_description"
+    textfile="$(find karina_description)/urdf/karina_description.urdf" />
+  
+    <!-- Start the joint state publisher node -->
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find karina_description)/config/karina_2d.rviz" />
+  
+    <!-- Start the robot state publisher node -->
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  
+      <!-- Start the joint state publisher node -->
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+
+</launch>

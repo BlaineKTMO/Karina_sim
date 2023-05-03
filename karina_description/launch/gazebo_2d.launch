@@ -1,0 +1,69 @@
+<launch>
+
+  <!-- Define an argument "world" with a default value of "barrel_straight". -->
+<arg name="world" default="barrel_straight" />
+
+  <!-- Include the "empty_world.launch" file from the "gazebo_ros" package.
+         This will launch Gazebo with an empty world. -->
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+<arg name="world_name" value="$(find karina_description)/worlds/$(arg world).world"/>
+<arg name="use_sim_time" value="true"/>
+</include>
+
+    <!-- Launch a "static_transform_publisher" node to set up a static transform between the "map" and "odom" frames. -->
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 map odom 40" />
+
+<!-- The below rosrun command can also be used and the below node commented out to prevent having to restart gazebo when working on urdf 
+     Running this command will spawn the robot in Gazebo any model already spawned in Gazebo needs to be deleted before spawining a new one-->
+     
+<!--rosrun gazebo_ros spawn_model -file ~/karina/igvc_ws/src/igvc_simulation/karina_description/urdf/karina_description_2d.urdf -urdf -model karina_description_2d-->
+
+<!-- Launch a "spawn_model" node to spawn the robot model in Gazebo.
+         This node uses the "gazebo_ros" package and the "karina_description_2d.urdf" file from the "karina_description" package. -->
+<node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find karina_description)/urdf/karina_description_2d.urdf -urdf -model karina_description_2d"
+    output="screen" />
+    
+    <!-- Launch a "rostopic" node to publish a message to the "/calibrated" topic. --> 
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+    <!-- Define an argument "model". -->
+  <arg
+    name="model" />
+    
+        <!-- Set the "robot_description" parameter to the "karina_description_2d.urdf" file. -->
+  <param
+    name="robot_description"
+    textfile="$(find karina_description)/urdf/karina_description_2d.urdf" />
+    
+    <!-- Launch a "rviz" node with a configuration file located in the "karina_description" package. -->
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find karina_description)/config/karina_2d.rviz" />
+    
+    <!-- Launch a "robot_state_publisher" node to publish the state of the robot model. -->
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+    
+    <!-- Launch a "joint_state_publisher" node to publish the joint states of the robot model. -->
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+
+</launch>

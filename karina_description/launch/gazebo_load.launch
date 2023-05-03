@@ -1,0 +1,16 @@
+<launch>
+
+  <!-- Define an argument named "world" with a default value of "barrel_straight" -->
+<arg name="world" default="barrel_straight" />
+
+  <!-- Include the empty world launch file from the gazebo_ros package -->
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+  <!-- Set the name of the world to load from the karina_description package's worlds directory, using the value of the "world" argument -->
+<arg name="world_name" value="$(find karina_description)/worlds/$(arg world).world"/>
+
+  <!-- Enable using simulation time, which is necessary for ROS time synchronization -->
+<arg name="use_sim_time" value="true"/>
+
+</include>
+</launch>

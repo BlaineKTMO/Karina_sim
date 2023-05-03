@@ -1,0 +1,377 @@
+<!--- 
+This is an XML file that describes a URDF (Unified Robot Description Format) model of a robot called Karina. 
+The URDF model is used in robotics simulation and visualization.
+The code defines three links: base_link, right_wheel_link, and left_wheel_link, along with a joint named right_wheel_joint. 
+The base_link represents the body of the robot, while the right_wheel_link and left_wheel_link represent the wheels.
+Each link contains information about its mass, moment of inertia, and geometry. 
+The visual and collision elements provide information about the link's appearance and shape in a simulation.
+The gazebo elements provide information for the Gazebo simulator, 
+which can be used with the URDF file to simulate the robot in a realistic environment.
+The joint element defines the joint that connects the base_link to the right_wheel_link. 
+commenting the codeThe joint has a continuous type, and its dynamics element specifies that there is no friction.
+
+--->
+
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="karina_description">
+
+  <!-- Base Link -->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.091898 -0.0027325 -0.011239"
+        rpy="0 0 0" />
+      <mass
+        value="72.574" />
+      <inertia
+        ixx="4.6083"
+        ixy="-0.019972"
+        ixz="1.7223"
+        iyy="8.7822"
+        iyz="-0.0020742"
+        izz="7.6168" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://karina_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://karina_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="base_link">
+    <mu1 value="0.1"/>
+    <mu2 value="0.1"/>
+    <kp value="10000000.0"/>
+    <kd value="1.0"/>
+    <fdir1 value="1 0 0"/>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+  <!-- End Of Base Link -->
+
+  <!-- Start of Right Wheel Link -->
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="4.0552E-06 0.00062225 9.8151E-06"
+        rpy="0 0 0" />
+      <mass
+        value="2.8396" />
+      <inertia
+        ixx="0.0090728"
+        ixy="5.1326E-07"
+        ixz="7.1343E-07"
+        iyy="0.014189"
+        iyz="1.2423E-06"
+        izz="0.0090742" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://karina_description/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://karina_description/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="right_wheel_link">
+    <mu1 value="10000000.0"/>
+    <mu2 value="10000000.0"/>
+    <kp value="10000000.0"/>
+    <kd value="1.0"/>
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.28904 -0.32118 -0.15799"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics
+      friction="0" />
+  </joint>
+  <!-- End of Right Wheel Link -->
+
+  <!-- Start of Left Wheel Link -->
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.062E-05 -0.00062225 -2.7756E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.8396" />
+      <inertia
+        ixx="0.0090745"
+        ixy="1.3441E-06"
+        ixz="-7.8936E-21"
+        iyy="0.014189"
+        iyz="3.8874E-21"
+        izz="0.0090725" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://karina_description/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://karina_description/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="left_wheel_link">
+    <mu1 value="10000000.0"/>
+    <mu2 value="10000000.0"/>
+    <kp value="10000000.0"/>
+    <kd value="1.0"/>
+    <fdir1 value="1 0 0"/>
+    <material>Gazebo/Grey</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.28904 0.32118 -0.15799"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics
+      friction="0" />
+  </joint>
+  <!-- End of Left Wheel Link -->
+
+
+  <!-- SENSORS -->
+
+  <!-- Camera Joint -->
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <!-- <origin xyz=" .08 0 1" rpy="3.1 3 -3.14" /> -->
+    <origin xyz=" 0 0 1" rpy="3.14 2.2 -3.14" />
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+  </joint>
+  <!-- End of Camera Joint -->
+
+  <!-- Camera Link -->
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="Blue"/>
+    </visual>
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <!-- camera -->
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <!-- <horizontal_fov>1.3962634</horizontal_fov> -->
+        <horizontal_fov>1.92</horizontal_fov>
+        <vertical_fov>1.22</vertical_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera_2d</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- hokuyo -->
+  <link name="velodyne">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="Blue"/>
+    </visual>
+  </link>
+  <joint name="velodyne_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=".08 0 0.4572"/>
+    <parent link="base_link"/>
+    <child link="velodyne"/>
+  </joint>
+  <gazebo reference="velodyne">
+    <material>Gazebo/Blue</material>
+    <turnGravityOff>false</turnGravityOff>
+    <sensor name="head_hokuyo_sensor" type="ray">
+      <pose>0.025 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159265</min_angle>
+            <max_angle>3.14159265</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>10.0</max>
+          <resolution>0.001</resolution>
+        </range>
+      </ray>
+      <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_head_hokuyo_controller">
+        <topicName>/scan</topicName>
+        <frameName>velodyne</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- GPS Sim  -->
+  <gazebo>
+    <plugin name="gazebo_ros_gps" filename="libhector_gazebo_ros_gps.so">
+      <updateRate>4.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <!--                 <frameId>/odom</frameId>-->
+      <topicName>/gps/fix</topicName>
+      <velocityTopicName>/gps/fix_velocity</velocityTopicName>
+      <referenceLatitude>-30.06022459407145675</referenceLatitude>
+      <referenceLongitude>-51.173913575780311191</referenceLongitude>
+      <referenceHeading>90</referenceHeading>
+      <referenceAltitude>10</referenceAltitude>
+      <offset>0 0 0</offset>
+      <drift>0.001 0.001 0.001</drift>
+      <gaussianNoise>0.05 0.05 0.05</gaussianNoise>
+      <velocityDrift>0.001 0.001 0.001</velocityDrift>
+      <velocityGaussianNoise>0.5 0.5 0.5</velocityGaussianNoise>
+      <!--                <drift>0.001 0.001 0.001</drift>-->
+      <!--                <gaussianNoise>0.01 0.01 0.01</gaussianNoise>-->
+      <!--                <velocityDrift>0 0 0</velocityDrift>-->
+      <!--                <velocityGaussianNoise>0.05 0.05 0.05</velocityGaussianNoise>-->
+    </plugin>
+  </gazebo>
+  
+  <!-- Differential drive controller  -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="libgazebo_ros_diff_drive">
+      <legacyMode>true</legacyMode>
+      <rosDebugLevel>Debug</rosDebugLevel>
+      <publishWheelTF>false</publishWheelTF>
+      <robotNamespace>/</robotNamespace>
+      <publishTf>1</publishTf>
+      <publishWheelJointState>false</publishWheelJointState>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <leftJoint>left_wheel_joint</leftJoint>
+      <rightJoint>right_wheel_joint</rightJoint>
+      <wheelSeparation>0.7</wheelSeparation>
+      <wheelDiameter>0.28</wheelDiameter>
+      <broadcastTF>1</broadcastTF>
+      <wheelTorque>300</wheelTorque>
+      <wheelAcceleration>1.8</wheelAcceleration>
+      <commandTopic>/move_base/cmd_vel</commandTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryTopic>odom</odometryTopic>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+</robot>

@@ -1,0 +1,35 @@
+<launch>
+    <!-- Define an argument for the robot model -->
+  <arg
+    name="model" />
+    <!-- Load the URDF file and set the robot description parameter -->
+  <param
+    name="robot_description"
+    textfile="$(find karina_description)/urdf/karina_description.urdf" />
+  
+    <!-- Start the joint state publisher node -->
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+  
+    <!-- Start the robot state publisher node -->
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  
+    <!-- Define a static transform between the "map" and "base_link" frames -->
+  <node
+    name="tf_map"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_link map 40" />
+  
+    <!-- Start RViz and load the configuration file -->
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find karina_description)/config/karina_2d.rviz" />
+</launch>
