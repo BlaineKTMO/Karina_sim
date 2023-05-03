@@ -10,3 +10,6 @@
 [submodule "hsv_thresh"]
 	path = hsv_thresh
 	url = https://github.com/waynerobotics/hsv_thresh.git
+[submodule "Karina-Navigation"]
+	path = Karina-Navigation
+	url = https://github.com/BlaineKTMO/Karina-Navigation

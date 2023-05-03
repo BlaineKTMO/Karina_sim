@@ -1,0 +1,16 @@
+<?xml version="1.0"?> 
+
+<launch>
+
+    <!-- Launch Gazebo Simulation and Karina robot -->
+    <include file="$(find karina_description)/launch/gazebo_3d.launch" />    
+
+    <!-- Camera lane data to laserscan -->
+    <include file="$(find igvc_vision)/launch/vernard_img_to_laser.launch" />
+
+    <include file="$(find vector_field_histogram)/launch/costmapkarina.launch" />
+
+    <!-- Camera Lane Detection -->
+    <node name="HSV_Thresh" pkg="hsv_thresh" type="hsv_sim.py"/>
+
+</launch>
