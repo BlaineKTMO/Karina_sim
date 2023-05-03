@@ -3,11 +3,12 @@
 <launch>
 
     <!-- Launch Gazebo Simulation and Karina robot -->
-    <include file="$(find karina_description)/launch/gazebo_3d.launch" />    
+    <include file="$(find karina_description)/launch/gazebo_2d.launch" />    
 
     <!-- Camera lane data to laserscan -->
     <include file="$(find igvc_vision)/launch/vernard_img_to_laser.launch" />
 
+    <!-- VFH Costmap -->
     <include file="$(find vector_field_histogram)/launch/costmapkarina.launch" />
 
     <!-- Camera Lane Detection -->
