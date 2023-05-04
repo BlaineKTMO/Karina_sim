@@ -14,4 +14,11 @@
     <!-- Camera Lane Detection -->
     <node name="HSV_Thresh" pkg="hsv_thresh" type="hsv_sim.py"/>
 
+    <!-- Local path controller -->
+    <include file="$(find dwa_planner)/launch/local_planner.launch"/>
+
+    <!-- Wayfinder and Agent -->
+    <include file="$(find karina_navigation)/launch/karina_navigation.launch"/>
+
+
 </launch>

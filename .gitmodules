@@ -13,3 +13,9 @@
 [submodule "Karina-Navigation"]
 	path = Karina-Navigation
 	url = https://github.com/BlaineKTMO/Karina-Navigation
+[submodule "modified-dwa"]
+	path = modified-dwa
+	url = https://github.com/BlaineKTMO/modified-dwa
+[submodule "ros-pid-controller"]
+	path = ros-pid-controller
+	url = https://github.com/BlaineKTMO/ros-pid-controller
