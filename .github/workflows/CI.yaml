@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-launch:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Install ROS
+        uses: dabit3/setup-ros@v1.1
+        
+      - name: Update ROS Package List
+        run: sudo apt-get update
+        
+      - name: Clone ROS Package
+        run: git clone https://github.com/BlaineKTMO/Karina_sim.git
+      
+      - name: Build ROS Package
+        run: |
+          mkdir ~/catkin_ws
+          mv Karina_sim ~/catkin_ws/src
+          cd ~/catkin_ws
+          catkin_make
+      
+      - name: Launch ROS Package
+        run: |
+          source /opt/ros/noetic/setup.bash
+          source ~/catkin_ws/devel/setup.bash
+          roslaunch karina_sim karina_sim_bringup.launch
