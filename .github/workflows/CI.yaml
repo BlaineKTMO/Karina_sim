@@ -24,6 +24,7 @@ jobs:
       
       - name: Build ROS Package
         run: |
+          sudo apt install ros-noetic-desktop-full
           source /opt/ros/noetic/setup.bash
           mkdir ~/catkin_ws
           mv Karina_sim ~/catkin_ws/src
