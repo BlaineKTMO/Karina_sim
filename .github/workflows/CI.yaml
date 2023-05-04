@@ -20,7 +20,7 @@ jobs:
         run: sudo apt-get update
         
       - name: Clone ROS Package
-        run: git clone https://github.com/BlaineKTMO/Karina_sim.git
+        run: git clone --recurse-submodules -j8 https://github.com/BlaineKTMO/Karina_sim.git
       
       - name: Build ROS Package
         run: |
