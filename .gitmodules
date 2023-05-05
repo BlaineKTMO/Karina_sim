@@ -1,8 +1,8 @@
 [submodule "Lane2Laser_Capstone"]
-	path = Lane2Laser_Capstone
+	path = igvc_vision
 	url = https://github.com/waynerobotics/Lane2Laser_Capstone.git
 [submodule "LaneFollow_Capstone"]
-	path = LaneFollow_Capstone
+	path = lanefollowing
 	url = https://github.com/waynerobotics/LaneFollow_Capstone.git
 [submodule "vector_field_histogram"]
 	path = vector_field_histogram
@@ -11,7 +11,7 @@
 	path = hsv_thresh
 	url = https://github.com/waynerobotics/hsv_thresh.git
 [submodule "Karina-Navigation"]
-	path = Karina-Navigation
+	path = karina_navigation
 	url = https://github.com/BlaineKTMO/Karina-Navigation
 [submodule "modified-dwa"]
 	path = modified-dwa
