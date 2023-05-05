@@ -1,5 +1,5 @@
 [submodule "Lane2Laser_Capstone"]
-	path = igvc_vision
+	path = Lane2Laser_Capstone
 	url = https://github.com/waynerobotics/Lane2Laser_Capstone.git
 [submodule "LaneFollow_Capstone"]
 	path = LaneFollow_Capstone
@@ -19,9 +19,6 @@
 [submodule "ros-pid-controller"]
 	path = ros-pid-controller
 	url = https://github.com/BlaineKTMO/ros-pid-controller
-[submodule "Costmap_Capstone"]
-	path = Costmap_Capstone
-	url = https://github.com/waynerobotics/Costmap_Capstone.git
 [submodule "map_search_values"]
 	path = map_search_values
 	url = https://github.com/waynerobotics/Costmap_Capstone.git
