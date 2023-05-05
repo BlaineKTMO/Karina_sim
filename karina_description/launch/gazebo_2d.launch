@@ -1,3 +1,5 @@
+<?xml version="1.0"?> 
+
 <launch>
 
   <!-- Define an argument "world" with a default value of "barrel_straight". -->
@@ -6,8 +8,8 @@
   <!-- Include the "empty_world.launch" file from the "gazebo_ros" package.
          This will launch Gazebo with an empty world. -->
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
-<arg name="world_name" value="$(find karina_description)/worlds/$(arg world).world"/>
-<arg name="use_sim_time" value="true"/>
+    <arg name="world_name" value="$(find karina_description)/worlds/$(arg world).world"/>
+    <arg name="use_sim_time" value="true"/>
 </include>
 
     <!-- Launch a "static_transform_publisher" node to set up a static transform between the "map" and "odom" frames. -->

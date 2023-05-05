@@ -1,15 +1,21 @@
 <?xml version="1.0"?> 
 
 <launch>
+    <arg name="world" default="barrel_straight"/>
 
     <!-- Launch Gazebo Simulation and Karina robot -->
-    <include file="$(find karina_description)/launch/gazebo_2d.launch" />    
+    <include file="$(find karina_description)/launch/gazebo_2d.launch">    
+        <arg name="world" value="$(arg world)"/>
+    </include>
 
     <!-- Camera lane data to laserscan -->
     <include file="$(find igvc_vision)/launch/vernard_img_to_laser.launch" />
 
     <!-- VFH Costmap -->
     <include file="$(find vector_field_histogram)/launch/costmapkarina.launch" />
+
+    <!-- VFH Waypoints -->
+    <node name="vfh" pkg="vector_field_histogram" type="vfhROSkarina2.py" />
 
     <!-- Camera Lane Detection -->
     <node name="HSV_Thresh" pkg="hsv_thresh" type="hsv_sim.py"/>
