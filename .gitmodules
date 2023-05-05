@@ -19,3 +19,6 @@
 [submodule "ros-pid-controller"]
 	path = ros-pid-controller
 	url = https://github.com/BlaineKTMO/ros-pid-controller
+[submodule "Costmap_Capstone"]
+	path = Costmap_Capstone
+	url = https://github.com/waynerobotics/Costmap_Capstone.git
