@@ -17,6 +17,9 @@
     <!-- VFH Waypoints -->
     <node name="vfh" pkg="vector_field_histogram" type="vfhROSkarina2.py" />
 
+    <!-- Lane Follow Waypoints -->
+    <!-- <node name="lane_follow" pkg="lanefollowing" type="lane_follow_final.py" /> -->
+
     <!-- Camera Lane Detection -->
     <node name="HSV_Thresh" pkg="hsv_thresh" type="hsv_sim.py"/>
 
