@@ -51,7 +51,9 @@ qtcreator-*
 CATKIN_IGNORE
 
 #ccls
+.ccls-cache
 .ccls
+.ccls/
 .clang
 .clangd
 

@@ -1,7 +1,13 @@
-Fix HSV params
+Fix HSV params for sim (per machine)
 
 Laser scan frame for laserscan sensor costmap
+Change costmap persistence
 
 DWA planner lethal cost
 
 No module named hsv_thresh
+    rebuild
+
+Change costmap topic for lanefollowing
+Launch costmap tools node
+

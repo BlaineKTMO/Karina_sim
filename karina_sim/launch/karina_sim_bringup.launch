@@ -14,11 +14,14 @@
     <!-- VFH Costmap -->
     <include file="$(find vector_field_histogram)/launch/costmapkarina.launch" />
 
+    <!-- Costmp Services  -->
+    <node name="costmap_tools" pkg="costmap_tools" type="costmap_tools_node" />
+
     <!-- VFH Waypoints -->
     <node name="vfh" pkg="vector_field_histogram" type="vfhROSkarina2.py" />
 
     <!-- Lane Follow Waypoints -->
-    <!-- <node name="lane_follow" pkg="lanefollowing" type="lane_follow_final.py" /> -->
+    <node name="lane_follow" pkg="lanefollowing" type="lane_follow_final.py" />
 
     <!-- Camera Lane Detection -->
     <node name="HSV_Thresh" pkg="hsv_thresh" type="hsv_sim.py"/>
