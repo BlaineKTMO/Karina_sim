@@ -1,0 +1,11 @@
+<?xml version="1.0"?> 
+
+<launch>
+    <node pkg="costmap_2d" type="costmap_2d_node" name="obstacle_costmap" output="screen">
+        <rosparam command="load" file="$(find multi_costmap)/params/obstacle_costmap_params.yaml" ns="/obstacle_costmap/costmap"/>
+    </node>
+
+    <node pkg="costmap_2d" type="costmap_2d_node" name="lane_costmap" output="screen">
+        <rosparam command="load" file="$(find multi_costmap)/params/lane_costmap_params.yaml" ns="/lane_costmap/costmap"/>
+    </node>
+</launch>

@@ -12,25 +12,26 @@
     <include file="$(find igvc_vision)/launch/vernard_img_to_laser.launch" />
 
     <!-- VFH Costmap -->
-    <include file="$(find vector_field_histogram)/launch/costmapkarina.launch" />
+    <!-- <include file="$(find vector_field_histogram)/launch/costmapkarina.launch" /> -->
+    <include file="$(find multi_costmap)/launch/multi_costmap.launch"/>
 
     <!-- Costmp Services  -->
     <node name="costmap_tools" pkg="costmap_tools" type="costmap_tools_node" />
 
     <!-- VFH Waypoints -->
-    <node name="vfh" pkg="vector_field_histogram" type="vfhROSkarina2.py" />
+    <!-- <node name="vfh" pkg="vector_field_histogram" type="vfhROSkarina2.py" /> -->
 
     <!-- Lane Follow Waypoints -->
-    <node name="lane_follow" pkg="lanefollowing" type="lane_follow_final.py" />
+    <!-- <node name="lane_follow" pkg="lanefollowing" type="lane_follow_final.py" /> -->
 
     <!-- Camera Lane Detection -->
     <node name="HSV_Thresh" pkg="hsv_thresh" type="hsv_sim.py"/>
 
     <!-- Local path controller -->
-    <include file="$(find dwa_planner)/launch/local_planner.launch"/>
+    <!-- <include file="$(find dwa_planner)/launch/local_planner.launch"/> -->
 
     <!-- Wayfinder and Agent -->
-    <include file="$(find karina_navigation)/launch/karina_navigation.launch"/>
+    <!-- <include file="$(find karina_navigation)/launch/karina_navigation.launch"/> -->
 
 
 </launch>
