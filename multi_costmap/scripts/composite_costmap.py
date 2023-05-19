@@ -48,7 +48,7 @@ class CompositeCostmap:
         self.composite_map.info = self.lane_map.info
 
         # Change to numpy for efficiency
-        self.composite_map.data = sum(self.lane_map, self.obstacle_map)
+        self.composite_map.data = sum(self.lane_map.data, self.obstacle_map.data)
 
     def run(self):
         while not rospy.is_shutdown():
